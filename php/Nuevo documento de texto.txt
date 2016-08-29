@@ -1,0 +1,157 @@
+$('#login').submit(function() { 
+	 
+
+		var usuario= $("#username").val();
+		var clave= $("#password").val();
+
+		$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/validacion.php",
+		data:({username:usuario,password:clave}),
+		crossDomain: true,
+		cache: false,
+		beforeSend: function () {
+                $("#home").html("Procesando, espere por favor...");
+                }
+         }).done(
+		 function(data){
+		alert(data.message);
+		if(data.success)
+		{
+		alert("Thank you for Registering with us! you can login now");
+		}
+		else if(data=="exist")
+		{
+		alert("Hey! You alreay has account! you can login with us");
+		}
+		else if(data=="failed")
+		{
+		alert("Something Went wrong");
+		}
+		});
+        });
+
+
+
+$('#login').submit(function() { 
+	 
+
+		var usuario= $("#username").val();
+		var clave= $("#password").val();
+
+		$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/validacion.php",
+		data:({username:usuario,password:clave}),
+		cache: false,
+		beforeSend: function () {
+                $("#home").html("Procesando, espere por favor...");
+                }
+         }).done(
+		 function(data){
+		alert(data.message);
+		if(data.success)
+		{
+		alert("Thank you for Registering with us! you can login now");
+		}
+		else if(data=="exist")
+		{
+		alert("Hey! You alreay has account! you can login with us");
+		}
+		else if(data=="failed")
+		{
+		alert("Something Went wrong");
+		}
+		});
+        });
+
+
+
+
+ $('#login').click(function(){ 
+	 
+
+		var usuario= $("#username").val();
+		var clave= $("#password").val();
+
+		$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/validacion.php",
+		data:$("#login").serialize(),
+		dataType:"jsonp",
+		crossDomain: true,
+		jsonp: 'callback',
+        jsonpCallback: 'jsonpCallback',
+		cache: false,
+		beforeSend: function () {
+                $("#home").html("Procesando, espere por favor...");
+                },
+
+		 success:function(data){
+			
+		alert("success"+data);
+
+		$("#home").html("aa");
+			
+
+		if(data["success"])
+		{
+		alert("Thank you for Registering with us! you can login now");
+		}
+		else if(data=="exist")
+		{
+		alert("Hey! You alreay has account! you can login with us");
+		}
+		else if(data=="failed")
+		{
+		alert("Something Went wrong");
+		}
+		}
+        });
+        return false;
+		}
+        );
+
+
+
+NUEVOOOOOOOOOOOOOO
+        $('#send').click(function(){ 
+	 
+
+		var usuario= $("#username").val();
+		var clave= $("#password").val();
+
+	
+		
+		$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/validacion.php",
+		data:{username:usuario, password:clave},
+		dataType:"jsonp",
+		crossDomain: true,
+		jsonp: 'callback',
+        jsonpCallback: 'jsonpCallback',
+		cache: false,
+		beforeSend: function () {
+                $("#home").html("Procesando, espere por favor...");
+                },
+
+		 success:function(data){
+			
+
+		$("#home").html(data[0].message);
+			
+
+		if(data[0].success)
+		{
+		alert("Thank you for Registering with us! you can login now");
+		}
+		else
+		{
+		alert("Something Went wrong");
+		}
+		}
+        });
+        return false;
+		}
+        );
