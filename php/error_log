@@ -1,17 +1,6 @@
-[28-Aug-2016 22:56:40 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, array given in /home/server201distrit/public_html/php/consultas.php on line 10
-[28-Aug-2016 23:25:50 UTC] PHP Parse error:  syntax error, unexpected 'while' (T_WHILE) in /home/server201distrit/public_html/php/consultas.php on line 16
-[28-Aug-2016 23:26:39 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, array given in /home/server201distrit/public_html/php/consultas.php on line 17
-[28-Aug-2016 23:57:32 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, object given in /home/server201distrit/public_html/php/consultas.php on line 13
-[29-Aug-2016 00:01:24 UTC] PHP Parse error:  syntax error, unexpected '"</td>"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/server201distrit/public_html/php/consultas.php on line 18
-[29-Aug-2016 00:07:58 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/server201distrit/public_html/php/consultas.php on line 32
-[29-Aug-2016 00:08:35 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, object given in /home/server201distrit/public_html/php/consultas.php on line 11
-[29-Aug-2016 00:11:33 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, object given in /home/server201distrit/public_html/php/consultas.php on line 10
-[29-Aug-2016 00:13:17 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, object given in /home/server201distrit/public_html/php/consultas.php on line 10
-[29-Aug-2016 00:14:39 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, array given in /home/server201distrit/public_html/php/consultas.php on line 10
-[29-Aug-2016 00:15:53 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/server201distrit/public_html/php/consultas.php on line 7
-[29-Aug-2016 00:15:53 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/server201distrit/public_html/php/consultas.php on line 7
-[29-Aug-2016 00:15:53 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, null given in /home/server201distrit/public_html/php/consultas.php on line 9
-[29-Aug-2016 00:19:39 UTC] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, null given in /home/server201distrit/public_html/php/consultas.php on line 9
-[29-Aug-2016 00:31:48 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on null in /home/server201distrit/public_html/php/consultas.php on line 10
-[29-Aug-2016 00:31:51 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on null in /home/server201distrit/public_html/php/consultas.php on line 10
-[29-Aug-2016 00:32:26 UTC] PHP Warning:  array_pop() expects parameter 1 to be array, null given in /home/server201distrit/public_html/php/consultas.php on line 14
+[29-Aug-2016 15:17:39 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6
+[29-Aug-2016 15:18:13 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6
+[29-Aug-2016 15:18:26 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6
+[29-Aug-2016 15:18:29 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6
+[29-Aug-2016 15:19:47 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6
+[29-Aug-2016 15:20:54 UTC] PHP Fatal error:  Call to a member function query() on null in /home/server201distrit/public_html/php/consultas.php on line 6

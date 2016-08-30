@@ -59,15 +59,13 @@
 			<input type="submit" id="send" class="btn btn-success" value="Login">
 	</form>
   </div>
-
-  <div data-role="footer">
-    <h3></h3>
+  <div>
   </div>
 </div> 
 
 <div data-role="page" id="home" >
- 	 <div data-role="header">
-    	
+ 	  <div data-role="header">
+      <h2 id="title1" >Onetrade</h2>	
   	</div>
   <div data-role="main" class="ui-content">
    		<div class="btn" id="btn1">
@@ -82,28 +80,82 @@
 
   </div>
 
-  <div data-role="footer">
+  <div>
    	<div id="logout">Logout</div>
   </div>
 </div> 
+
 
 <div data-role="page" id="select-courses">
  	 <div data-role="header">
-    	<h2>Forex Courses availables:</h2>
+    	<h2 id="title2">Forex Courses availables:</h2>
   	</div>
   <div data-role="main" class="ui-content" id="courses">
-
-
-
-
 
   </div>
 
   <div data-role="footer">
-   	<div id="logout">Logout</div>
-   	<div id="courses-back"></div>
+    <div id="courses-back" onClick="back('coursesmenu');" class="btn btn-success">Back</div>
   </div>
 </div> 
+
+<div data-role="page" id="content-courses">
+   <div data-role="header" id="title-content-courses">
+      
+   </div>
+  <div data-role="main" class="ui-content" id="content-courses-in">
+
+
+
+
+
+  </div>
+
+  <div>
+    <div id="courses-back" onClick="back('coursescontent');" class="btn btn-success" >Back</div>
+  </div>
+</div>
+
+
+<div data-role="page" id="content-quiz">
+   <div data-role="header" id="quiz-menu-title">
+      <h2 id="title3">Select your quiz:</h2>
+   </div>
+  <div data-role="main" class="ui-content" id="quiz-menu">
+
+
+
+
+
+  </div>
+
+  <div>
+    <div id="quiz-back" onClick="back('quizmenu')" class="btn btn-success">Back </div>
+  </div>
+</div>
+
+
+
+<div data-role="page" id="on-quiz">
+   <div data-role="header" id="quiz-on-title">
+      <h2 id="title4">Mark the correct answers:</h2>
+   </div>
+  <div data-role="main" class="ui-content" id="question-quiz">
+
+    <form onsubmit="" id="answerquiz">
+      
+    </form>    
+
+  </div>
+  <div>
+    <div id="quiz-back" onClick="back('quizquestion')" class="btn btn-success col-xs-12">Back </div>
+  </div>
+</div>
+
+
+
+
+
 
 
     <script type="text/javascript" src="cordova.js"></script>

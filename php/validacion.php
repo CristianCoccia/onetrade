@@ -14,7 +14,7 @@ if(isset($_POST['username']))
  	$usuarioValido=$info_total['email'];
  	$passwordValido=$info_total['password'];
 
- 	if( $usuarioEnviado == $usuarioValido && $passwordEnviado == $passwordValido ){
+ 	if( $usuarioEnviado == $usuarioValido && $passwordEnviado == $passwordValido && $usuarioEnviado!="" && $passwordEnviado!=""){
 
  	    $jsondata['success'] = true;
          $jsondata['message'] = 'Welcome!';
