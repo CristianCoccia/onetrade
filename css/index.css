@@ -21,13 +21,12 @@
    -moz-transition:  .15s ease-in-out;
    -webkit-transition:  .15s ease-in-out;
    transition:  .15s ease-in-out;
-}
+  }
 
 body {
 
-    width:100%;
-    background: url('../img/back.png');
-    background-size: cover;
+    
+    background:url('../img/lastimg.png') no-repeat bottom, url('../img/back.png');
 
 }
 
@@ -158,8 +157,7 @@ h1 {
 #login-form
 {
     
-    padding-top: 30%;
-    margin: 1em;
+    padding-top: 50%;
     max-height: 100%;
 }
 
@@ -181,20 +179,20 @@ h1 {
 #select-courses
 {
     display: none;
-    padding: 3em;
+    padding: 1em;
 }
 
 .title-content
 {
     color: white;
-    font-size: 3em;
+    font-size: 1em;
 
 }
 
 .courses-content
 {
     color: white;
-    font-size: 2em;
+    font-size: 0.8em;
     text-align: left;
   
 }
@@ -202,7 +200,7 @@ h1 {
 #content-quiz
 {
     display: none;
-    padding: 3em;
+    padding: 1em;
 }
 
 
@@ -210,6 +208,9 @@ h1 {
 {
     display: none;
     padding: 1em;
+    background: rgba(0,0,0,0.8);
+    height: 100%;
+    overflow:scroll;
 }   
 
 
@@ -232,10 +233,60 @@ h1 {
     text-align: left;
 }
 
-#title1,#title2,#title3,#title4
+#title1,#title2,#title3,#title4,#title5
 {
     text-align: center;
     color: black;
     background: rgba(255,255,255,0.9);
     font-size: 2em;
+}
+
+#market
+{
+    display: none;
+}
+
+table
+{   
+    margin-top: 2em;
+    width: 100%;
+    color: white;
+
+}
+
+#title-table
+{
+    color: black;
+    background: rgba(255,255,255,0.9);
+}
+
+#pending,#active,#closed
+{
+    display: block;
+    padding: 0.8em;
+}
+
+#pending
+{
+    background: yellow;
+}
+
+#active
+{
+    background: green;
+}
+
+#closed
+{
+    background: red;
+}
+
+#logout
+{
+    padding: 0.5em;
+    background: green;
+    color: white;
+    text-align: center;
+    width: 35%;
+    border-radius: 2em;
 }

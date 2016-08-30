@@ -44,17 +44,27 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        if(localStorage.getItem("Loged"))
-        {
-        	$("#home").css("display","block");
-        	$("login.form").css("display","none");
-        }
+
 
         console.log('Received Event: ' + id);
     }
 };
 
+if(localStorage.getItem("Loged"))
+{
+   	$("#home").css("display","block");
+   	$("#login-form").css("display","none");
+}
+
 var quizq,quizh,quiza,quizh2;
+
+var height =screen.height-25;
+
+
+$("body").css("height",height);
+
+
+
 
  $('#send').click(function(){ 
 	 
@@ -214,6 +224,22 @@ $('#btn2').click(function(){
 
 
 
+$('#btn3').click(function(){ 
+
+	$("#market").css("display","block");
+	$("#home").css("display","none");
+})
+
+
+$('#logout').click(function(){
+
+	localStorage.removeItem("Loged");	
+	$("#home").css("display","none");
+   	$("#login-form").css("display","block");
+}
+)
+
+
 
 
 
@@ -250,7 +276,7 @@ function findcontent(id)
 			} );
 			$("#content-courses-in").css({
 				    "color": "white",
-    				"font-size": "2em",
+    				"font-size": "1em",
     				"text-align": "left",
 			});
 		
@@ -393,5 +419,9 @@ function back(a)
 	}
 
 
-
+	if(a=="market")
+	{
+		$("#market").css("display","none");
+		$("#home").css("display","block");		
+	}
 }
