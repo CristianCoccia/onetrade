@@ -58,13 +58,6 @@ if(localStorage.getItem("Loged"))
 
 var quizq,quizh,quiza,quizh2;
 
-var height =screen.height-25;
-
-
-$("body").css("height",height);
-
-
-
 
  $('#send').click(function(){ 
 	 
