@@ -41,7 +41,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.min.css">
+    
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>Onetrade</title>
 </head>
@@ -143,10 +143,20 @@
    </div>
   <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="question-quiz">
 
-    <form onsubmit="" id="answerquiz">
-      
-    </form>    
+  
 
+  </div>
+  <div id="answerquiz" class="col-xs-12 col-sm-12">
+
+    <div  id="option1" class="col-xs-12 col-sm-12">
+      
+    </div>
+    <div  id="option2" class="col-xs-12 col-sm-12">
+      
+    </div>
+    <div  id="option3" class="col-xs-12 col-sm-12">
+      
+    </div>
   </div>
   <div id="back5">
     <div id="quiz-back" onClick="back('quizquestion')" class="btn btn-success col-xs-12 col-sm-12">Back </div>
@@ -158,74 +168,17 @@
    <div data-role="header" id="market-title" class="col-xs-12 col-sm-12">
       <h2 id="title5">DashBoard</h2>
    </div>
-  <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="question-quiz">
-  <table class="table table-inverse">  
-  <tr id="title-table">
-    <td></td>
-    <td>Date</td>
-    <td>Pair</td>
-    <td>Entry</td>
-    <td>SL</td>
-    <td>TPs</td>
-  </tr>
-  <tr>
-    <td bgcolor="yellow" width="20px"></td>
-    <td>Ago 29</td>
-    <td>GBP/JPY</td>
-    <td>Entry</td>
-    <td>1.125</td>
-    <td>1.135</td>  
-  </tr>
-  <tr>
-    <td bgcolor="red" width="20px"></td>
-    <td>Ago 27</td>
-    <td>EURO/CAN</td>
-    <td>Entry</td>
-    <td>1.562</td>
-    <td>1.125</td>
-  </tr>
-  <tr>
-    <td bgcolor="red" width="20px"></td>
-    <td>Ago 26</td>
-    <td>GBP/JPY</td>
-    <td>Entry</td>
-    <td>1.892 </td>
-    <td>1.125</td>
-  </tr>
-  <td bgcolor="green" width="20px"></td>
-    <td>Ago 25</td>
-    <td>EURO/CAN</td>
-    <td>Entry</td>
-    <td>1.892 </td>
-    <td>1.125</td>
-  </tr>
-</table>  
-<div class="col-xs-12" id="stats">
-  <div class="col-xs-4">
-    Pending<p id="pending"></p>
-  </div>
-    <div class="col-xs-4">
-    Active<p id="active"></p>
-  </div>
-    <div class="col-xs-4">
-    Closed<p id="closed"></p>
-  </div>
-</div>
+  <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="indicators">
+  
   </div>
   <div id="back6">
     <div id="market-back" onClick="back('market')" class="btn btn-success col-xs-12 col-sm-12">Back </div>
   </div>
 </div>
-
-
-
-
-
-
-
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>  
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
      
      <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
     <script type="text/javascript">

@@ -56,7 +56,7 @@ if(localStorage.getItem("Loged"))
    	$("#login-form").css("display","none");
 }
 
-var quizq,quizh,quiza,quizh2;
+var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 
 
  $('#send').click(function(){ 
@@ -219,9 +219,93 @@ $('#btn2').click(function(){
 
 $('#btn3').click(function(){ 
 
-	$("#market").css("display","block");
-	$("#home").css("display","none");
-})
+
+	var option="indi";
+
+
+
+	$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/consultas.php",
+		data:{indi:option},
+		dataType:"json",
+		crossDomain: true,
+		cache: false,
+		beforeSend: function () {
+                
+
+                },
+
+		 success:function(data){	
+
+			var valor=data.length,i,j,operation,price,pair,stop,tape,acumulador="",title,date,ayuda=0;
+
+			for(i=0;i<valor;i++)
+			{	
+				ayuda++;
+				for(j=0;j<7;j++)
+				{
+					if(j==0)
+					{
+						date=data[i][j];
+					}
+					else
+					if(j==1)
+					{
+						title=data[i][j];
+					}
+					else
+					if(j==2)
+					{
+						operation=data[i][j];
+					}
+					else
+					if(j==3)
+					{
+						price=data[i][j];
+					}
+					else
+					if(j==4)
+					{
+						pair=data[i][j];
+					}
+					else
+					if(j==5)
+					{
+						stoploss=data[i][j];
+					}
+					else
+					if(j==6)
+					{
+						tape=data[i][j];
+					}
+
+				}
+
+				acumulador=acumulador+'<div href="#indicator'+ayuda+'" onClick="show('+ayuda+')" class="btn btn-warning col-xs-12 col-sm-12">'+date+'| '+title+'</div><div id="'+ayuda+'" class="col-xs-12 col-sm-12 collapse" > Operation:'+operation+'</br>Price:'+price+'</br>Pair:'+pair+'</br>Stoploss:'+stoploss+'</br>Tape profit:'+tape+'</div>';
+
+			}
+
+			$("#indicators").html(acumulador);
+			for(i=1;i<valor+1;i++)
+			{
+				$("#"+i).css(
+				{
+					"background":"white",
+					"font-size":"1em",
+					"font-weight":"bold",
+					"border-radius":"1em",
+					"padding":"1em"
+				});
+			}
+
+			$("#market").css("display","block");
+			$("#home").css("display","none");
+		}
+        });
+		}
+        );
+
 
 
 $('#logout').click(function(){
@@ -230,8 +314,14 @@ $('#logout').click(function(){
 	$("#home").css("display","none");
    	$("#login-form").css("display","block");
 }
-)
+);
 
+
+function show(a)
+{
+	$("#"+a).toggle("slow");
+
+}
 
 
 
@@ -285,6 +375,7 @@ function findcontent(id)
 function findquiz(id)
 {		
 		var a=id;
+		
 
 		$.ajax({
 		type: "POST",
@@ -293,33 +384,29 @@ function findquiz(id)
 		dataType:"json",
 		crossDomain: true,
 		cache: false,
+		async:false,
 		beforeSend: function () {
                 
 
                 },
 
 		 success:function(data){	
-
-				quizh='';
-				var i,j;
-				var valor=data.length;
-				for(i=0;i<valor;i++)
-				{	
-					quizh=quizh+'<div class="col-xs-12"><p>'+data[i][0]+'</p></div><div class="col-xs-12">';
-					for(j=1;j<=1;j++)
-					{
-							
-						quizh=quizh+findanswer(data[i][j]);
-
-						
-					}
-
-				}
+		 		var local;
+				quizh=data;
+				quiza=1;
+				quiza2=0;
+				countq=1;
+				counta=0;
+				ayudante=0;
+				questions=data.length;
+				findanswer(quizh[0][quiza]);
 
 
 				$("#content-quiz").css("display","none");
 				$("#on-quiz").css("display","block");
-				$("#answerquiz").html(quizh);
+
+				$("#question-quiz").html(quizh[quiza2][0]);
+
 				
 		
 		}
@@ -342,7 +429,7 @@ function findanswer(a)
 		dataType:"json",
 		crossDomain: true,
 		cache: false,
-		async:false,
+		async:true,
 		beforeSend: function () {
                 
 
@@ -353,7 +440,8 @@ function findanswer(a)
 
 		 	var valor= data.length;
 		 	
-		 	var i,j,opcion;
+		 	var i,j,opcion,id,ayuda,ayuda2;
+
 
 
 				for(i=0;i<valor;i++)
@@ -361,16 +449,27 @@ function findanswer(a)
 					
 					opcion=data[i][0];
 
+
 					for( j=1;j<=1;j++)
-					{
-							
-						answerback=answerback+'<div class="col-xs-12"><input type="radio"  name="option'+b+'" value="'+data[0][j]+'"/>'+opcion+'</div></div>';
+					{	
+						k=i+1;
+						id="answer"+k;	
+						answerback='<div id="'+id+'" onClick="next('+data[i][j]+')">'+opcion+'</div>';
+						ayuda="#option"+k;
+						ayuda2="#"+id;
+
+						
+						$(ayuda).html(answerback);
+						$(ayuda2).addClass("btn btn-danger col-xs-12 col-sm-12 blink");
 
 					}
+
+
 
 				}
 				
 				
+
 			
 		
 		}
@@ -416,5 +515,34 @@ function back(a)
 	{
 		$("#market").css("display","none");
 		$("#home").css("display","block");		
+	}
+}
+
+
+
+function next(a)
+{
+	
+	if(countq<=questions)
+	{
+
+			quiza++;
+			quiza2++;
+			countq++;
+			ayudante++;
+			counta=counta+a;
+
+			
+			findanswer(quizh[ayudante][1]);
+
+			$("#question-quiz").html(quizh[quiza2][0]);
+	}
+	else
+	{
+		$("#question-quiz").html("You Finished the Quiz");
+		$("#option1").html("You got "+counta+" answers corrects out of "+questions+" questions.");
+		$("#option2").html("");
+		$("#option3").html("");
+
 	}
 }

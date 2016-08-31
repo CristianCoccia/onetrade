@@ -75,7 +75,26 @@ include('config.php');
  	}
 
 
- 	if(isset($_POST['answerid']))
+ 	if(isset($_POST['indi']))
+ 	{
+
+ 	$sql="SELECT indidate,indititle,operation,price,pair,stoploss,tapeprofit FROM app_indicators ORDER BY  indidate DESC";
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_array())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
+ 
+ 	}
+
+
+ 	 if(isset($_POST['answerid']))
  	{
  	$sql="SELECT option,status FROM quizz_answers WHERE questionid=".$_POST['answerid'];
 	$info=$db->query($sql);
@@ -91,6 +110,7 @@ include('config.php');
 
  
  	}
+
 
 
  
