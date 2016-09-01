@@ -47,6 +47,27 @@
 
 <body>
 
+<div class="app"> 
+            <h1>PhoneGap</h1> 
+            <form id="formulario" name="formulario" method="post" action="PHPServer/registro.php"> 
+                <p><input type="text" id="name" name="name" placeholder="Nombre" required></p> 
+                <p><input type="text" id="email" name="email" placeholder="Correo" required></p> 
+                <p><input type="text" name="regId" id="regId" readonly="readonly" placeholder="regId"></p> 
+                <button type="button" onclick="registrar();">Registar</button> 
+            </form>   
+
+            <div id="deviceready" class="blink"> 
+                <p class="event listening">Connecting to Device</p> 
+                <p class="event received">Device is Ready</p> 
+            </div>   
+        </div> 
+
+
+
+
+
+
+
 	<div data-role="page" id="login-form">
  	 <div data-role="header" class="col-xs-12 col-sm-12">
     	<h1 id="tittle" >Welcome!, please login with your credentials to continue.</h1>
@@ -81,7 +102,7 @@
    		</div>
       </div>
       <div class="col-xs-4">
-        <div id="btn4" class="btn">
+        <div id="btn4" onclick="register()" class="btn">
           
         </div>
       </div>
@@ -207,6 +228,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>  
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/PushNotification.js"></script>
      
      <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
     <script type="text/javascript">
