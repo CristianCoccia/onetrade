@@ -59,6 +59,7 @@ if(localStorage.getItem("Loged"))
 var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 
 
+
  $('#send').click(function(){ 
 	 
 		var usuario= $("#username").val();
@@ -81,6 +82,7 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 		{
 			$("#login-form").css("display","none");
 			$("#home").css("display","block");
+			$("#menu-main").css("display","block");
 			localStorage.setItem("Loged",usuario);
 
 		}
@@ -312,9 +314,25 @@ $('#logout').click(function(){
 
 	localStorage.removeItem("Loged");	
 	$("#home").css("display","none");
+	$("#select-courses").css("display","none");
+	$("#select-courses").css("display","none");
+	$("#content-courses").css("display","none");
+	$("#content-quiz").css("display","none");
+	$("#on-quiz").css("display","none");
+	$("#market").css("display","none");
+	$("#menu-main").css("display","none");
+	$("#opciones-menu").toggle("fast");
    	$("#login-form").css("display","block");
+
 }
 );
+
+
+$("#btn-menu").click(function(){
+
+
+	$("#opciones-menu").toggle("fast");
+});
 
 
 function show(a)
@@ -322,8 +340,6 @@ function show(a)
 	$("#"+a).toggle("slow");
 
 }
-
-
 
 
 function findcontent(id)
@@ -358,9 +374,10 @@ function findcontent(id)
    					 "font-size": "3em"
 			} );
 			$("#content-courses-in").css({
-				    "color": "white",
-    				"font-size": "1em",
+					"margin-top":"2em",
+    				"font-size": "1.3em",
     				"text-align": "left",
+    				"margin-bottom":"4em"
 			});
 		
 		}
@@ -523,7 +540,7 @@ function back(a)
 function next(a)
 {
 	
-	if(countq<=questions)
+	if(countq<questions)
 	{
 
 			quiza++;
@@ -541,6 +558,7 @@ function next(a)
 	{
 		$("#question-quiz").html("You Finished the Quiz");
 		$("#option1").html("You got "+counta+" answers corrects out of "+questions+" questions.");
+		$("#option1").css("color","black");
 		$("#option2").html("");
 		$("#option3").html("");
 

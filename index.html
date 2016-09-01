@@ -40,15 +40,14 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">   
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>Onetrade</title>
 </head>
 
 <body>
 
-	<div data-role="page" id="login-form" class="container">
+	<div data-role="page" id="login-form">
  	 <div data-role="header" class="col-xs-12 col-sm-12">
     	<h1 id="tittle" >Welcome!, please login with your credentials to continue.</h1>
   	</div>
@@ -63,47 +62,63 @@
   </div>
 </div> 
 
-<div data-role="page" id="home" class="container">
- 	  <div data-role="header" class="col-xs-12 col-sm-12">
-      <h2 id="title1" >Onetrade</h2>	
+
+
+<div data-role="page" id="home">
+ 	  <div data-role="header" id="title1" class="col-xs-12 col-sm-12">
+      <h2>Onetrade</h2>	
   	</div>
+  <div class="container">
   <div data-role="main" class="ui-content col-xs-12 col-sm-12">
-   		<div class="btn" id="btn1">
+      <div class="col-xs-12">
+      <div class="btn" id="btn3">
+        
+      </div>		
+      </div>
+      <div class="col-xs-8">
+      <div class="btn" id="btn1">
    			
    		</div>
+      </div>
+      <div class="col-xs-4">
+        <div id="btn4" class="btn">
+          
+        </div>
+      </div>
+      <div class="col-xs-12">
    		<div class="btn" id="btn2">
    			
    		</div>
-   		<div class="btn" id="btn3">
-   			
-   		</div>
+      </div>
 
   </div>
-
+</div>
   <div id="back2" class="col-xs-12 col-sm-12">
-   	<div id="logout">Logout</div>
+
   </div>
 </div> 
 
 
-<div data-role="page" id="select-courses" class="container">
- 	 <div data-role="header" class="col-xs-12 col-sm-12">
-    	<h2 id="title2">Forex Courses availables:</h2>
+<div data-role="page" id="select-courses">
+ 	 <div data-role="header" id="title2" class="col-xs-12 col-sm-12">
+    	<h2>Forex Courses availables:</h2>
   	</div>
+<div class="container">
   <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="courses">
 
   </div>
-
-  <div data-role="footer" id="back1">
-    <div id="courses-back" onClick="back('coursesmenu');" class="btn btn-success col-xs-12 col-sm-12">Back</div>
+</div>
+  <div data-role="footer" id="back1" class="col-xs-12 col-sm-12">
+    <div id="courses-back" onClick="back('coursesmenu');" class="btn btn-success " >Back</div>
   </div>
 </div> 
 
 
-<div data-role="page" id="content-courses" class="container">
+<div data-role="page" id="content-courses">
    <div data-role="header" id="title-content-courses" class="col-xs-12 col-sm-12">
       
    </div>
+<div class="container">
   <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="content-courses-in">
 
 
@@ -111,17 +126,18 @@
 
 
   </div>
-
-  <div id="back3">
-    <div id="courses-back" onClick="back('coursescontent');" class="btn btn-success col-xs-12 col-sm-12" >Back</div>
+</div>
+  <div id="back3" class="col-xs-12 col-sm-12">
+    <div id="courses-back" onClick="back('coursescontent');" class="btn btn-success " >Back</div>
   </div>
 </div>
 
 
-<div data-role="page" id="content-quiz" class="container">
-   <div data-role="header" id="quiz-menu-title" class="col-xs-12 col-sm-12">
-      <h2 id="title3">Select your quiz:</h2>
+<div data-role="page" id="content-quiz">
+   <div data-role="header" id="title3" class="col-xs-12 col-sm-12">
+      <h2>Select your quiz:</h2>
    </div>
+<div class="container">
   <div data-role="main" class="ui-content" id="quiz-menu" class="col-xs-12 col-sm-12">
 
 
@@ -129,18 +145,20 @@
 
 
   </div>
+</div>
 
-  <div id="back4">
-    <div id="quiz-back" onClick="back('quizmenu')" class="btn btn-success col-xs-12 col-sm-12">Back </div>
+  <div id="back4" class="col-xs-12 col-sm-12">
+    <div id="quiz-back" onClick="back('quizmenu')" class="btn btn-success">Back</div>
   </div>
 </div>
 
 
 
-<div data-role="page" id="on-quiz" class="container">
-   <div data-role="header" id="quiz-on-title" class="col-xs-12 col-sm-12">
-      <h2 id="title4">Mark the correct answers:</h2>
+<div data-role="page" id="on-quiz">
+   <div data-role="header" id="title4" class="col-xs-12 col-sm-12">
+      <h2 >Mark the correct answers:</h2>
    </div>
+  <div class="container">
   <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="question-quiz">
 
   
@@ -158,22 +176,32 @@
       
     </div>
   </div>
-  <div id="back5">
-    <div id="quiz-back" onClick="back('quizquestion')" class="btn btn-success col-xs-12 col-sm-12">Back </div>
+ </div> 
+  <div id="back5" class="col-xs-12 col-sm-12">
+    <div id="quiz-back" onClick="back('quizquestion')" class="btn btn-success">Back </div>
   </div>
 </div>
 
 
-<div data-role="page" id="market" class="container">
-   <div data-role="header" id="market-title" class="col-xs-12 col-sm-12">
-      <h2 id="title5">DashBoard</h2>
+<div data-role="page" id="market">
+   <div data-role="header" id="title5" class="col-xs-12 col-sm-12">
+      <h2>DashBoard</h2>
    </div>
+
   <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="indicators">
   
   </div>
-  <div id="back6">
-    <div id="market-back" onClick="back('market')" class="btn btn-success col-xs-12 col-sm-12">Back </div>
+
+  <div id="back6" class="col-xs-12 col-sm-12">
+    <div id="market-back" onClick="back('market')" class="btn btn-success">Back</div>
   </div>
+</div>
+
+<div id="menu-main">
+  <img id="btn-menu" src="img/menu.png">
+</div>
+<div id="opciones-menu" class="collapse">
+  <div class="btn" id="logout">Logout</div>
 </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
