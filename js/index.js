@@ -54,7 +54,7 @@ var app = {
        // if (device.platform == 'android' || device.platform == 'Android') { 
             alert("Register called"); 
             //tu Project ID aca!! 
-            pushNotification.register(this.successHandler, this.errorHandler,{"d213d15dc975e1c7":"onetrade-142113","ecb":"app.onNotificationGCM"}); 
+            pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"596982116432","ecb":"app.onNotificationGCM"}); 
        /* } 
         else { 
             alert("Register called"); 
