@@ -25,7 +25,6 @@
     <preference name="android-minSdkVersion"      value="14" />
     <preference name="orientation" value="portrait" />
     <plugin name="PushPlugin" value="com.plugin.gcm.PushPlugin" />
-    <gap:plugin name="com.phonegap.plugins.pushplugin"/> 
     <access origin="*" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <!-- <preference name="phonegap-version"       value="cli-6.0.0" /> -->
