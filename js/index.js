@@ -71,6 +71,7 @@ var app = {
     onNotificationGCM: function(e) { 
         switch( e.event ) 
         { 
+        	
             case 'registered': 
                 if ( e.regid.length > 0 ) 
                 { 

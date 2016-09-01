@@ -47,27 +47,6 @@
 
 <body>
 
-<div class="app"> 
-            <h1>PhoneGap</h1> 
-            <form id="formulario" name="formulario" method="get" action="PHPServer/registro.php"> 
-                <p><input type="text" id="name" name="name" placeholder="Nombre" required></p> 
-                <p><input type="text" id="email" name="email" placeholder="Correo" required></p> 
-                <p><input type="text" name="regId" id="regId" readonly="readonly" placeholder="regId"></p> 
-                <button type="button" onclick="registrar();">Registar</button> 
-            </form>   
-
-            <div id="deviceready" class="blink"> 
-                <p class="event listening">Connecting to Device</p> 
-                <p class="event received">Device is Ready</p> 
-            </div>   
-        </div> 
-
-
-
-
-
-
-
 	<div data-role="page" id="login-form">
  	 <div data-role="header" class="col-xs-12 col-sm-12">
     	<h1 id="tittle" >Welcome!, please login with your credentials to continue.</h1>
@@ -90,21 +69,23 @@
       <h2>Onetrade</h2>	
   	</div>
   <div class="container">
-  <div data-role="main" class="ui-content col-xs-12 col-sm-12">
+  <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="main-btn">
       <div class="col-xs-12">
       <div class="btn" id="btn3">
         
       </div>		
       </div>
+      <div class="col-xs-12">
       <div class="col-xs-8">
       <div class="btn" id="btn1">
    			
    		</div>
       </div>
       <div class="col-xs-4">
-        <div id="btn4" onclick="register()" class="btn">
+        <div id="btn4" class="btn">
           
         </div>
+      </div>
       </div>
       <div class="col-xs-12">
    		<div class="btn" id="btn2">

@@ -30,6 +30,7 @@ body {
     height: 100vh;
     width:  100vw;
 
+
 }
 
 /* Portrait layout (default) */
@@ -105,38 +106,54 @@ h1 {
 .btn
 {
     margin-top: 1em;
-    padding: 6em;
+ 
 }
 
 
 
 #btn1
 {
-    background: url('../img/educacion.png') left no-repeat;
-    background-size: 90% 90%;
-    
-   
+    background: url('../img/educacion.png') right no-repeat;
+    margin:0;
+    padding: 4.8em;
+    margin-top: 1em;
+    height: 1em;
+    width: 100%;
+  
 }
 
 #btn2
 {
     background: url('../img/quiz.png') left no-repeat;
     background-size: cover;
-    
+    padding: 4.8em;
+    margin-top: 1em;
+    height: 1em;
+    width: 100%;
 }
 
 #btn3
 {
     background: url('../img/alerts.png') left no-repeat;
     background-size: cover;
+    padding: 4.8em;
+    margin:0;
+    margin-top: 1em;
+    height: 1em;
+    width: 100%;
     
 }
 
 #btn4
 {
-    margin-left: -4em;
+    
     background: url('../img/sms.png') center no-repeat;
-    background-size: 80%;
+    background-size: cover;
+    padding: 2.8em;
+    margin-top: 2.5em;
+    margin-left: -1em;
+    height: 1em;
+    width: 100%;
 
 }
 
@@ -165,25 +182,31 @@ h1 {
 
 #login-form
 {
-    
+    overflow: hidden;   
     padding-top: 50%;
     height: 100vh;
     max-height: 100%;
     background: url("../img/back.png");
     background-size: cover;
-    display: none; 
+   
+}
+
+#main-btn
+{
+    margin-top: 2em;
 }
 
 #home
 {
     display: none;
-    
+    overflow: hidden;
+
 
 }
 
-#home .btn,#courses .btn
+#courses .btn
 {
-    padding: 5em;
+    padding: 4.8em;
     margin-top: 1em;
     height: 1em;
     width: 100%;
@@ -192,6 +215,7 @@ h1 {
 #select-courses
 {
     display: none;
+    overflow: hidden;
     
 }
 
@@ -213,6 +237,7 @@ h1 {
 #content-quiz
 {
     display: none;
+    overflow: hidden;
     
 }
 
@@ -221,7 +246,8 @@ h1 {
 {
     display: none;
     min-height: 100vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }   
 
 #indicators
