@@ -27,11 +27,7 @@
         
     <gap:plugin name="com.phonegap.plugins.pushplugin"/>
     
-    <gap:plugin name="phonegap-plugin-push" source="npm" spec="~1.6.2">
-            <params>
-            <param name="SENDER_ID" value="596982116432" />
-            </params>
-    </gap:plugin>
+
 
     <access origin="*" />
     <!-- Define a specific version of PhoneGap to build into your app. -->
