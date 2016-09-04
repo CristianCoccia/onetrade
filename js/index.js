@@ -50,67 +50,60 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
 
-         var pushNotification = window.plugins.pushNotification; 
-       // if (device.platform == 'android' || device.platform == 'Android') { 
-            alert("Register called"); 
-            //tu Project ID aca!! 
-            pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"596982116432","ecb":"app.onNotificationGCM"}); 
-       /* } 
-        else { 
-            alert("Register called"); 
-            pushNotification.register(this.successHandler,this.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"}); 
-        }*/ 
-    }, 
-    // result contains any message sent from the plugin call 
-    successHandler: function(result) { 
-        alert('Callback Success! Result = '+result);
-    }, 
-    errorHandler:function(error) { 
-        alert(error); 
-    }, 
-    onNotificationGCM: function(e) { 
-        switch( e.event ) 
-        { 
-        	
-            case 'registered': 
-                if ( e.regid.length > 0 ) 
-                { 
-                    console.log("Regid " + e.regid); 
-                    alert('registration id = '+e.regid); 
-                    //Cuando se registre le pasamos el regid al input 
-                    document.getElementById('regId').value = e.regid; 
-                } 
-            break; 
 
-            case 'message': 
-              // NOTIFICACION!!! 
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt); 
-            break; 
+  module.run(function($cordovaPush) {
 
-            case 'error': 
-              alert('GCM error = '+e.msg); 
-            break; 
+  var androidConfig = {
+    "senderID": "596982116432",
+  };
 
-            default: 
-              alert('An unknown GCM event has occurred'); 
-              break; 
-        } 
-    }, 
-    onNotificationAPN: function(event) { 
-        var pushNotification = window.plugins.pushNotification; 
-        alert("Running in JS - onNotificationAPN - Received a notification! " + event.alert); 
-         
-        if (event.alert) { 
-            navigator.notification.alert(event.alert); 
-        } 
-        if (event.badge) { 
-            pushNotification.setApplicationIconBadgeNumber(this.successHandler, this.errorHandler, event.badge); 
-        } 
-        if (event.sound) { 
-            var snd = new Media(event.sound); 
-            snd.play(); 
-        } 
+  document.addEventListener("deviceready", function(){
+    $cordovaPush.register(androidConfig).then(function(result) {
+      // Success
+    }, function(err) {
+      // Error
+    })
+
+    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+      switch(notification.event) {
+        case 'registered':
+          if (notification.regid.length > 0 ) {
+            alert('registration ID = ' + notification.regid);
+          }
+          break;
+
+        case 'message':
+          // this is the actual push notification. its format depends on the data model from the push server
+          alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
+          break;
+
+        case 'error':
+          alert('GCM error = ' + notification.msg);
+          break;
+
+        default:
+          alert('An unknown GCM event has occurred');
+          break;
+      }
+    });
+
+
+    // WARNING: dangerous to unregister (results in loss of tokenID)
+    $cordovaPush.unregister(options).then(function(result) {
+      // Success!
+    }, function(err) {
+      // Error
+    })
+
+  }, false);
+});
+
+
+       
     } 
+    // result contains any message sent from the plugin call 
+
+
     
 };
 
