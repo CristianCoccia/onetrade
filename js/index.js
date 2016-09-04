@@ -91,7 +91,6 @@ console.log(data.message);
 		$("#alertnotification").html(data.count);
 
 	}
- data.count,
 // data.sound,
 // data.image,
 // data.additionalData
