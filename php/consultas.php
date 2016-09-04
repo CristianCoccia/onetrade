@@ -114,7 +114,7 @@ include('config.php');
 
  	if(isset($_POST["key"]))
 	{
-		$sql2="SELECT COUNT(gcm_regid) FROM gcm_devices WHERE gcm_regid=".$_POST["key"]."";
+		$sql2="SELECT COUNT(gcm_regid) FROM gcm_devices WHERE gcm_regid='".$_POST["key"]."'";
 		$result = $db->query($sql2);
 		$row = $result->fetch_row();
 

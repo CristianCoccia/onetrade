@@ -84,12 +84,12 @@ console.log(data.registrationId);
 
 push.on('notification', function(data) {
 console.log(data.message);
-alert(data.title+" Message: " +data.message);
 	if(data.title=="There's a new indicator")
-	{
-		localStorage.setItem("notification")=localStorage.getItem("notification")+1;
+	{	var i;
+		i=PaserInt(localStorage.getItem("notification"))+1;
+		localStorage.setItem("notification",i);
 		$("#alertnotification").css("display","block");
-		$("#alertnotification").html(localStorage.setItem("notification"));
+		$("#alertnotification").html(localStorage.getItem("notification"));
 
 	}
 // data.count,
@@ -102,6 +102,7 @@ push.on('error', function(e) {
 console.log(e.message);
 });
 }
+
 
 
 
@@ -282,8 +283,8 @@ $('#btn3').click(function(){
 
 	var option="indi";
 
-	
-		localStorage.setItem("notification")=0;
+
+		localStorage.setItem("notificacion",0);
 		$("#alertnotification").css("display","none");
 
 	$.ajax({
