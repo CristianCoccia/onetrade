@@ -25,7 +25,11 @@
     <preference name="android-minSdkVersion"      value="14" />
     <preference name="orientation" value="portrait" />
         
-    <gap:plugin name="com.phonegap.plugins.pushplugin"/>
+    <gap:plugin name="phonegap-plugin-push" source="npm" >
+            <params>
+            <param name="SENDER_ID" value="596982116432" />
+            </params>
+    </gap:plugin>
     
 
 
