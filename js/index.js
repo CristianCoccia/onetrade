@@ -56,7 +56,7 @@ var app = {
 document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady(){
 console.log("Device Ready")
-var push = PushNotification.init({ "android": {"senderID": "596982116432"},
+var push = PushNotification.init({ "android": {"senderID":"596982116432"},
 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
 push.on('registration', function(data) {

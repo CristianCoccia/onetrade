@@ -96,7 +96,7 @@ include('config.php');
 
  	 if(isset($_POST['answerid']))
  	{
- 	$sql="SELECT option,status FROM quizz_answers WHERE questionid=".$_POST['answerid'];
+ 	$sql="SELECT optionw,statusw FROM quizz_answers WHERE questionid=".$_POST['answerid'];
 	$info=$db->query($sql);
 	
 
