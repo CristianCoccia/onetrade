@@ -36,8 +36,7 @@ var app = {
         app.receivedEvent('deviceready');
                      document.addEventListener("deviceready", onDeviceReady, true);
 
-            // device APIs are available
-            //
+
 
     },
     // Update DOM on a Received Event
@@ -48,64 +47,67 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        console.log('Received Event: ' + id);
-
-
-  module.run(function($cordovaPush) {
-
-  var androidConfig = {
-    "senderID": "596982116432",
-  };
-
-  document.addEventListener("deviceready", function(){
-    $cordovaPush.register(androidConfig).then(function(result) {
-      // Success
-    }, function(err) {
-      // Error
-    })
-
-    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
-      switch(notification.event) {
-        case 'registered':
-          if (notification.regid.length > 0 ) {
-            alert('registration ID = ' + notification.regid);
-          }
-          break;
-
-        case 'message':
-          // this is the actual push notification. its format depends on the data model from the push server
-          alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
-          break;
-
-        case 'error':
-          alert('GCM error = ' + notification.msg);
-          break;
-
-        default:
-          alert('An unknown GCM event has occurred');
-          break;
-      }
-    });
-
-
-    // WARNING: dangerous to unregister (results in loss of tokenID)
-    $cordovaPush.unregister(options).then(function(result) {
-      // Success!
-    }, function(err) {
-      // Error
-    })
-
-  }, false);
-});
-
-
-       
+        console.log('Received Event: ' + id);      
     } 
     // result contains any message sent from the plugin call 
 
-
-    
 };
+
+document.addEventListener("deviceready",onDeviceReady,false);
+function onDeviceReady(){
+console.log("Device Ready")
+var push = PushNotification.init({ "android": {"senderID": "596982116432"},
+"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+push.on('registration', function(data) {
+console.log(data.registrationId);
+alert(data.registrationId);
+
+	$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/prueba/index.php",
+		data:{key:data.registrationId},
+		dataType:"json",
+		crossDomain: true,
+		cache: false,
+		beforeSend: function () {
+                
+                },
+
+		 success:function(data){	
+
+			
+		if(data.success)
+		{
+			alert("send");
+
+		}
+		else
+		{
+		alert("Wrong email or password");
+		}
+		}
+        });
+
+
+});
+
+push.on('notification', function(data) {
+console.log(data.message);
+alert(data.title+" Message: " +data.message);
+// data.title,
+// data.count,
+// data.sound,
+// data.image,
+// data.additionalData
+});
+
+push.on('error', function(e) {
+console.log(e.message);
+});
+}
+
+
 
 if(localStorage.getItem("Loged"))
 {
