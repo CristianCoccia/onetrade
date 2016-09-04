@@ -85,14 +85,13 @@ console.log(data.registrationId);
 push.on('notification', function(data) {
 console.log(data.message);
 	if(data.title=="There's a new indicator")
-	{	var i;
-		i=PaserInt(localStorage.getItem("notification"))+1;
-		localStorage.setItem("notification",i);
+	{	
+		alert("se agrego");
 		$("#alertnotification").css("display","block");
-		$("#alertnotification").html(localStorage.getItem("notification"));
+		$("#alertnotification").html(data.count);
 
 	}
-// data.count,
+ data.count,
 // data.sound,
 // data.image,
 // data.additionalData
