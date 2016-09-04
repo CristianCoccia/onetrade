@@ -61,11 +61,11 @@ var push = PushNotification.init({ "android": {"senderID":"596982116432"},
 
 push.on('registration', function(data) {
 console.log(data.registrationId);
-alert(data.registrationId);
+
 
 	$.ajax({
 		type: "POST",
-		url: "http://server201.distritohosting.com/prueba/index.php",
+		url: "http://server201.distritohosting.com/php/consultas.php",
 		data:{key:data.registrationId},
 		dataType:"json",
 		crossDomain: true,
@@ -76,16 +76,6 @@ alert(data.registrationId);
 
 		 success:function(data){	
 
-			
-		if(data.success)
-		{
-			alert("send");
-
-		}
-		else
-		{
-		alert("Wrong email or password");
-		}
 		}
         });
 
@@ -95,7 +85,13 @@ alert(data.registrationId);
 push.on('notification', function(data) {
 console.log(data.message);
 alert(data.title+" Message: " +data.message);
-// data.title,
+	if(data.title=="There's a new indicator")
+	{
+		localStorage.setItem("notification")=localStorage.getItem("notification")+1;
+		$("#alertnotification").css("display","block");
+		$("#alertnotification").html(localStorage.setItem("notification"));
+
+	}
 // data.count,
 // data.sound,
 // data.image,
@@ -159,6 +155,8 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 $('#btn1').click(function(){ 
 
 		var selection="courses";
+
+
 
 		$.ajax({
 		type: "POST",
@@ -284,7 +282,9 @@ $('#btn3').click(function(){
 
 	var option="indi";
 
-
+	
+		localStorage.setItem("notification")=0;
+		$("#alertnotification").css("display","none");
 
 	$.ajax({
 		type: "POST",

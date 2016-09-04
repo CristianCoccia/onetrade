@@ -378,3 +378,14 @@ table
 }
 
 
+#alertnotification
+{
+    display: none;
+    position: absolute;
+    padding: 0.8em;
+    color:white;
+    background-color: red;
+    border-radius: 100%;
+    right: 2em;
+    top:0;
+}
