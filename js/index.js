@@ -86,11 +86,13 @@ push.on('notification', function(data) {
 console.log(data.message);
 	if(data.title=="There's a new indicator")
 	{	
-		alert("se agrego");
 		$("#alertnotification").css("display","block");
-		$("#alertnotification").html(data.count);
-
 	}
+	else
+	{
+		$("#alertnotification2").css("display","block");
+	}
+
 // data.sound,
 // data.image,
 // data.additionalData
@@ -184,9 +186,21 @@ $('#btn1').click(function(){
 
 		$("#courses").html(titles);
 
+
+		$("#courses .btn").css({
+			    "padding": "1.4em",
+			    "margin-top": "1em",
+			    "height":"1em",
+			    "width":"100%",
+			    "color":"white",
+			    "background":"rgba(25,52,62,0.5)",
+			    "font-size":"1.2em"
+						});
+
 			for(i=0;i<data.length;i++)
 			{	
 				ayuda="#course"+i;
+
 				for(j=1;j<=1;j++)
 				{	
 					$(ayuda).attr("onclick","findcontent("+data[i][j]+")");
@@ -195,15 +209,6 @@ $('#btn1').click(function(){
 
 			}
 
-		$("#courses .btn").css({
-			    "padding": "2em",
-			    "margin-top": "2em",
-			    "height":"1em",
-			    "width":"100%",
-			    "color":"white",
-			    "background":"rgba(25,52,62,0.8)",
-			    "font-size":"1.2em"
-						});
 
 		
 		}
@@ -258,12 +263,12 @@ $('#btn2').click(function(){
 			}
 
 		$("#quiz-menu .btn").css({
-			    "padding": "2em",
-			    "margin-top": "2em",
+			    "padding": "1.2em",
+			    "margin-top": "1em",
 			    "height":"1em",
 			    "width":"100%",
 			    "color":"white",
-			    "background":"rgba(25,52,62,0.8)",
+			    "background":"rgba(25,52,62,0.5)",
 			    "font-size":"1.2em"
 						});
 
@@ -396,7 +401,7 @@ $("#btn-menu").click(function(){
 
 function show(a)
 {
-	$("#"+a).toggle("slow");
+	$("#"+a).toggle("fast");
 
 }
 
@@ -428,9 +433,13 @@ function findcontent(id)
 			$("#title-content-courses").html(data[0].title_content);
 			$("#content-courses-in").html(data[0].general_info);
 
+
 			$("#title-content-courses").css({
 				    "color": "white",
-   					 "font-size": "3em"
+   					 "font-size": "2em",
+   					 "height":"2em",
+   					 "text-align":"left",
+   					 "padding-top":"0.5em"
 			} );
 			$("#content-courses-in").css({
 					"margin-top":"2em",
