@@ -59,7 +59,7 @@ include('config.php');
 
  	if(isset($_POST['quizid']))
  	{
- 	$sql="SELECT question,idquestion FROM quizz_questions WHERE app_quiz_quizid=".$_POST['quizid'];
+ 	$sql="SELECT question,idquestion FROM quizz_questions WHERE app_quiz_quizid=".$_POST['quizid']." ORDER BY RAND()";
 	$info=$db->query($sql);
 	
 
@@ -96,7 +96,7 @@ include('config.php');
 
  	 if(isset($_POST['answerid']))
  	{
- 	$sql="SELECT optionw,statusw FROM quizz_answers WHERE questionid=".$_POST['answerid'];
+ 	$sql="SELECT optionw,statusw FROM quizz_answers WHERE questionid=".$_POST['answerid']." ORDER BY RAND()";
 	$info=$db->query($sql);
 	
 
@@ -131,6 +131,42 @@ include('config.php');
 
 	}
 
+ 	if(isset($_POST['mess']))
+ 	{
+
+ 	$sql="SELECT idmessage,datem,titlem FROM messages ORDER BY  datem DESC";
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_array())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
+ 
+ 	}
+
+
+ 	if(isset($_POST['messageid']))
+ 	{
+
+ 	$sql="SELECT titlem,content FROM messages WHERE idmessage=".$_POST['messageid']."";
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_array())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
+ 
+ 	}
  
 
 

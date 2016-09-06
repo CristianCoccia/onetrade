@@ -129,7 +129,7 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 		crossDomain: true,
 		cache: false,
 		beforeSend: function () {
-                
+        $("#wait").css("display","block");       
                 },
 
 		 success:function(data){	
@@ -137,6 +137,7 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 			
 		if(data.success)
 		{
+			$("#wait").css("display","none");
 			$("#login-form").css("display","none");
 			$("#home").css("display","block");
 			$("#menu-main").css("display","block");
@@ -147,6 +148,11 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 		{
 		alert("Wrong email or password");
 		}
+		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
 		}
         });
         return false;
@@ -167,11 +173,14 @@ $('#btn1').click(function(){
 		crossDomain: true,
 		cache: false,
 		beforeSend: function () {
-                
+
+        $("#wait").css("display","block");    
+
                 },
 
-		 success:function(data){	
+		 success:function(data){
 
+		$("#wait").css("display","none");
 		var titles='';
 		var i,j,ayuda;
 		$("#home").css("display","none");
@@ -188,13 +197,12 @@ $('#btn1').click(function(){
 
 
 		$("#courses .btn").css({
-			    "padding": "1.4em",
-			    "margin-top": "1em",
-			    "height":"1em",
+			    "padding": "0.8em",
+			    "margin-top": "0.5em",
 			    "width":"100%",
 			    "color":"white",
 			    "background":"rgba(25,52,62,0.5)",
-			    "font-size":"1.2em"
+			    "font-size":"1.1em"
 						});
 
 			for(i=0;i<data.length;i++)
@@ -211,6 +219,11 @@ $('#btn1').click(function(){
 
 
 		
+		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
 		}
         });
         return false;
@@ -231,11 +244,11 @@ $('#btn2').click(function(){
 		crossDomain: true,
 		cache: false,
 		beforeSend: function () {
-                
+             $("#wait").css("display","block");   
                 },
 
 		 success:function(data){	
-
+		 	$("#wait").css("display","none");
 		var titles='';
 		var i,j,ayuda;
 		$("#home").css("display","none");
@@ -273,6 +286,10 @@ $('#btn2').click(function(){
 						});
 
 		
+		},error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
 		}
         });
         return false;
@@ -298,12 +315,13 @@ $('#btn3').click(function(){
 		crossDomain: true,
 		cache: false,
 		beforeSend: function () {
-                
+        
+        $("#wait").css("display","block");        
 
                 },
 
 		 success:function(data){	
-
+		 	$("#wait").css("display","none");
 			var valor=data.length,i,j,operation,price,pair,stop,tape,acumulador="",title,date,ayuda=0;
 
 			for(i=0;i<valor;i++)
@@ -361,16 +379,86 @@ $('#btn3').click(function(){
 					"font-size":"1em",
 					"font-weight":"bold",
 					"border-radius":"1em",
-					"padding":"1em"
+					"padding":"1em",
+					"margin-top":"1em"
 				});
 			}
 
 			$("#market").css("display","block");
 			$("#home").css("display","none");
 		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
+		}
         });
 		}
         );
+
+
+
+
+$('#btn4').click(function(){ 
+
+		var selection="messages";
+		$("#show-messages").html("<h2>Select a message below:</h2>");	
+
+		$.ajax({
+		type: "POST",
+		url:"http://server201.distritohosting.com/php/consultas.php",
+		data:{mess:selection},
+		dataType:"json",
+		crossDomain: true,
+		cache: false,
+		beforeSend: function () {
+
+		$("#wait").css("display","block");
+                },
+		 success:function(data){	
+
+		 $("#wait").css("display","none");
+		$("#alertnotification2").css("display","none");
+		$("#home").css("display","none");
+		$("#messages").css("display","block");
+
+		var date,titles,i,j,total;
+		total="";
+
+			for(i=0;i<data.length;i++)
+			{	
+				total=total+'<div class="btn" id="message'+data[i][0]+'" onclick="findmessage('+data[i][0]+')">';
+
+				for(j=1;j<=2;j++)
+				{
+					if(j==1)
+					{
+						date=data[i][j];
+					}
+					else
+					{
+						titles=data[i][j];
+					}
+				}
+
+				total=total+date+" | "+titles+"</div>";
+
+			}
+
+		$("#all-messages").html(total);
+		
+		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
+		}
+        });
+        return false;
+		}
+        );
+
+
 
 
 
@@ -385,8 +473,10 @@ $('#logout').click(function(){
 	$("#on-quiz").css("display","none");
 	$("#market").css("display","none");
 	$("#menu-main").css("display","none");
+	$("#messages").css("display","none");
 	$("#opciones-menu").toggle("fast");
    	$("#login-form").css("display","block");
+
 
 }
 );
@@ -418,12 +508,12 @@ function findcontent(id)
 		cache: false,
 		beforeSend: function () {
                 
-
+		$("#wait").css("display","block"); 	
                 },
 
 		 success:function(data){	
 
-			
+			$("#wait").css("display","none"); 
 		
 		
 			$("#select-courses").css("display","none");
@@ -449,6 +539,11 @@ function findcontent(id)
 			});
 		
 		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
+		}
         });
        
 		
@@ -472,10 +567,11 @@ function findquiz(id)
 		async:false,
 		beforeSend: function () {
                 
-
+			$("#wait").css("display","block"); 
                 },
 
-		 success:function(data){	
+		 success:function(data){
+		 		$("#wait").css("display","none"); 	
 		 		var local;
 				quizh=data;
 				quiza=1;
@@ -494,6 +590,10 @@ function findquiz(id)
 
 				
 		
+		},error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
 		}
         });
        
@@ -601,6 +701,17 @@ function back(a)
 		$("#market").css("display","none");
 		$("#home").css("display","block");		
 	}
+
+	if(a=="messages")
+	{
+		$("#messages").css("display","none");
+		$("#home").css("display","block");	
+		$("#show-messages").html("<h2>Select a message below:</h2>");	
+
+	}
+
+
+
 }
 
 
@@ -634,6 +745,44 @@ function next(a)
 }
 
 
+function findmessage(id)
+{		
+		var a=id;
+		
 
+		$.ajax({
+		type: "POST",
+		url: "http://server201.distritohosting.com/php/consultas.php",
+		data:{messageid:a},
+		dataType:"json",
+		crossDomain: true,
+		cache: false,
+		async:false,
+		beforeSend: function () {
+                
+
+                },
+
+		 success:function(data){	
+
+		 	var total="";
+
+		 	total='<div class="col-xs-12"><h2>'+data[0][0]+'</h2></div>';
+		 	total=total+'<div class="col-xs-12">'+data[0][1]+'</div>';
+
+
+			$("#show-messages").html(total);
+			$("#all-messages .btn").css("background","rgba(0,0,0,0.4)");
+			$("#message"+id).css("background","rgba(62,96,111,0.9)");
+
+
+				
+		
+		}
+        });
+       
+		
+        
+}
 
 
