@@ -368,6 +368,7 @@ table
 
 #menu-main
 {
+    display: none;
     position: absolute;
     top: 1em;
     right: 1em;
@@ -376,13 +377,14 @@ table
 
 #opciones-menu
 {
+    display: none;
     position: absolute;
     top:0;
     width: 100%;
     background-color: rgba(0,0,0,0.8);
     height: 4em;
     color: white;
-    display: none;
+
    
 }
 
@@ -454,4 +456,20 @@ table
     color: black;
     top: 40vh;
     text-align: center;
+}
+
+#logo
+{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    max-width: 100vw;
+    
+
+}
+
+#logo img
+{
+    width: 80vw; 
+
 }
