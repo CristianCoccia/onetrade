@@ -639,13 +639,20 @@ function findanswer(a)
 					{	
 						k=i+1;
 						id="answer"+k;	
-						answerback='<div id="'+id+'" onClick="next('+data[i][j]+')">'+opcion+'</div>';
+						answerback='<div id="'+id+'"class="btn btn-danger col-xs-12 col-sm-12 blink" wrap="on" onClick="next('+data[i][j]+')"><p>'+data[i][0]+'</p></div>';
 						ayuda="#option"+k;
 						ayuda2="#"+id;
 
 						
 						$(ayuda).html(answerback);
-						$(ayuda2).addClass("btn btn-danger col-xs-12 col-sm-12 blink");
+					//	$(ayuda2).addClass("btn btn-danger col-xs-12 col-sm-12 blink");
+						$(ayuda2+">p").css( {"word-break": "break-all",
+											"word-wrap": "break-word",
+											"overflow-wrap": "break-word",
+											"display":"block",
+						 				"max-width":"80vw",
+						 				"text-overflow": "ellipsis"
+						 					});
 
 					}
 
