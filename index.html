@@ -41,7 +41,6 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">   
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>Onetrade</title>
 </head>
 
@@ -49,19 +48,17 @@
 
 	<div data-role="page" id="login-form">
     <div data-role="header"  id="logo" class="col-xs-12 col-sm-12">
-    <img src="img/logotipo.png">
+    <img src="img/logotipo.png" class="img-responsive">
     </div>
- 	 <div data-role="header" class="col-xs-12 col-sm-12">
-    	<h1 id="tittle" >Welcome!, please login with your credentials to continue.</h1>
-  	</div>
-  <div data-role="main" class="ui-content col-xs-12 col-sm-12">
-   <form name="login" id="login">
-			<input type="email" id="username"  name="username" placeholder="email@domain.com" class="form-control" required>
-			<input type="password" id="password" name="password" placeholder="insert your password" class="form-control" required>
-			<input type="submit" id="send" class="btn btn-success" value="Login">
-	</form>
-  </div>
-  <div id="back1">
+   <div data-role="header" class="col-xs-12 col-sm-12">
+      <h1 id="tittle" >Welcome!, please login with your credentials to continue.</h1>
+    </div>
+  <div data-role="main" class="ui-content col-xs-12 col-sm-12" id="login">
+   <form name="login">
+      <input type="email" id="username"  name="username" placeholder="email@domain.com" class="form-control" required>
+      <input type="password" id="password" name="password" placeholder="insert your password" class="form-control" required>
+      <input type="submit" id="send" class="btn btn-success" value="Login">
+  </form>
   </div>
 </div> 
 

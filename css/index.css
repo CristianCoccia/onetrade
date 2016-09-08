@@ -177,11 +177,12 @@ h1 {
 }
 
 #login-form
-{
-    overflow: hidden;   
+{   
+       
     padding-top: 50%;
     height: 100vh;
     max-height: 100%;
+    max-width: 100vw;
     background:url("../img/back.png");
     background-size: cover;
    
@@ -195,7 +196,8 @@ h1 {
 #home
 {
     display: none;
-    overflow: hidden;
+    overflow: auto;
+    height: 90vh;
 
 
 }
@@ -465,10 +467,10 @@ table
 }
 
 #logo
-{
+{   
+    padding-left: 2.5em;
     position: absolute;
-    top: 1em;
-    left: 1em;
+    top:1em;
     max-width: 100vw;
     
 
