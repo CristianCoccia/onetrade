@@ -197,6 +197,7 @@ h1 {
 {
     display: none;
     overflow: auto;
+    overflow-x: hidden;
     height: 90vh;
 
 
