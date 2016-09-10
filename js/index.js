@@ -84,7 +84,7 @@ console.log(data.registrationId);
 
 push.on('notification', function(data) {
 console.log(data.message);
-	if(data.title=="There's a new indicator")
+	if(data.title=="NEW TRADE ALERTS")
 	{	
 		$("#alertnotification").css("display","block");
 	}
@@ -104,7 +104,7 @@ console.log(e.message);
 }
 
 
-
+//Making sure if someone is logged in
 
 if(localStorage.getItem("Loged"))
 {
@@ -116,6 +116,7 @@ if(localStorage.getItem("Loged"))
 var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 
 
+//User verfication
 
  $('#send').click(function(){ 
 	 
@@ -158,6 +159,8 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
         return false;
 		}
         );
+
+ //Getting courses information
 		 
 $('#btn1').click(function(){ 
 
@@ -230,7 +233,7 @@ $('#btn1').click(function(){
 		}
         );
 
-
+//Getting all the quizzes
 
 $('#btn2').click(function(){ 
 
@@ -297,6 +300,7 @@ $('#btn2').click(function(){
         );
 
 
+//Getting all the indicators
 
 $('#btn3').click(function(){ 
 
@@ -310,7 +314,7 @@ $('#btn3').click(function(){
 	$.ajax({
 		type: "POST",
 		url: "http://onetrade.exchange/app_onetrade/consultas.php",
-		data:{indi:option},
+		data:{indisolo:option},
 		dataType:"json",
 		crossDomain: true,
 		cache: false,
@@ -320,70 +324,31 @@ $('#btn3').click(function(){
 
                 },
 
-		 success:function(data){	
+		 success:function(data){
+
 		 	$("#wait").css("display","none");
-			var valor=data.length,i,j,operation,price,pair,stop,tape,acumulador="",title,date,ayuda=0;
+
+			var valor=data.length,i,j,date,title,acumulador="";
 
 			for(i=0;i<valor;i++)
-			{	
-				ayuda++;
-				for(j=0;j<7;j++)
+			{		
+				for(j=1;j<=2;j++)
 				{
-					if(j==0)
+					if(j==1)
 					{
 						date=data[i][j];
 					}
 					else
-					if(j==1)
 					{
 						title=data[i][j];
 					}
-					else
-					if(j==2)
-					{
-						operation=data[i][j];
-					}
-					else
-					if(j==3)
-					{
-						price=data[i][j];
-					}
-					else
-					if(j==4)
-					{
-						pair=data[i][j];
-					}
-					else
-					if(j==5)
-					{
-						stoploss=data[i][j];
-					}
-					else
-					if(j==6)
-					{
-						tape=data[i][j];
-					}
-
 				}
 
-				acumulador=acumulador+'<div href="#indicator'+ayuda+'" onClick="show('+ayuda+')" class="btn btn-warning col-xs-12 col-sm-12">'+date+'| '+title+'</div><div id="'+ayuda+'" class="col-xs-12 col-sm-12 collapse" > Operation:'+operation+'</br>Price:'+price+'</br>Pair:'+pair+'</br>Stoploss:'+stoploss+'</br>Tape profit:'+tape+'</div>';
+				acumulador=acumulador+'</br><div class="btn btn-warning" onclick="findindicator('+data[i][0]+')"> '+date+' | '+title+'</div></br>';
 
 			}
 
 			$("#indicators").html(acumulador);
-			for(i=1;i<valor+1;i++)
-			{
-				$("#"+i).css(
-				{
-					"background":"white",
-					"font-size":"1em",
-					"font-weight":"bold",
-					"border-radius":"1em",
-					"padding":"1em",
-					"margin-top":"1em"
-				});
-			}
-
 			$("#market").css("display","block");
 			$("#home").css("display","none");
 		}
@@ -397,7 +362,7 @@ $('#btn3').click(function(){
         );
 
 
-
+//Getting the messages
 
 $('#btn4').click(function(){ 
 
@@ -460,7 +425,7 @@ $('#btn4').click(function(){
 
 
 
-
+//Logout function
 
 $('#logout').click(function(){
 
@@ -495,6 +460,8 @@ function show(a)
 
 }
 
+
+//Getting courses content
 
 function findcontent(id)
 {
@@ -550,7 +517,7 @@ function findcontent(id)
         
 }
 
-
+//Getting quiz questions
 
 function findquiz(id)
 {		
@@ -601,7 +568,7 @@ function findquiz(id)
         
 }
 
-
+//Getting quiz answers
 function findanswer(a)
 {	
 	var answerback='';
@@ -671,9 +638,7 @@ function findanswer(a)
 }
 
 
-
-
-
+//All the back buttons
 
 function back(a)
 {
@@ -717,11 +682,17 @@ function back(a)
 
 	}
 
+	if(a=="indicatorsolo")
+	{
+		$("#indicator-solo").css("display","none");
+		$("#market").css("display","block");	
+	}
+
 
 
 }
 
-
+//Next question function
 
 function next(a)
 {
@@ -751,6 +722,7 @@ function next(a)
 	}
 }
 
+//getting all the content from the messages
 
 function findmessage(id)
 {		
@@ -792,4 +764,91 @@ function findmessage(id)
         
 }
 
+
+//Getting all the information about the indicators
+
+function findindicator(a)
+{ 
+
+	$.ajax({
+		type: "POST",
+		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		data:{indisoloinfo:a},
+		dataType:"json",
+		crossDomain: true,
+		cache: false,
+		beforeSend: function () {
+        
+        $("#wait").css("display","block");        
+
+                },
+
+		 success:function(data){
+
+		 	$("#wait").css("display","none");
+
+			var valor=data.length,i,j,operation,price,pair,stop,tape,acumulador="",title,date,ayuda=0,concatenar="";
+
+			for(i=0;i<valor;i++)
+			{	
+				ayuda++;
+				for(j=0;j<7;j++)
+				{
+					if(j==0)
+					{
+						date=data[i][j];
+					}
+					else
+					if(j==1)
+					{
+						title=data[i][j];
+					}
+					else
+					if(j==2)
+					{
+						operation=data[i][j];
+					}
+					else
+					if(j==3)
+					{
+						price=data[i][j];
+					}
+					else
+					if(j==4)
+					{
+						pair=data[i][j];
+					}
+					else
+					if(j==5)
+					{
+						stop=data[i][j];
+					}
+					else
+					if(j==6)
+					{
+						tape=data[i][j];
+					}
+
+				}
+			}
+
+			concatenar=title+" </br> ";
+
+			$("#title-date").html('<h2 style="font-weight:bold;text-transform:uppercase">'+concatenar+'</h2><img src="img/calendar.png"/> <p style="color:#000040;display:inline;font-weight:bold">'+date+'<p></br>');
+			$("#pair").html("<h4>PAIR: <p style='color:yellow;display:inline;font-weight:bold;font-size:1.3em'>"+pair+"</p></h4>");
+			$("#stop").html("<h4>STOP LOSS:<p style='color:yellow;display:inline;font-weight:bold;font-size:1.3em'> "+stop+"</p></h4>");
+			$("#tape").html("<h4>TAPE PROFIT: <p style='color:yellow;display:inline;font-weight:bold;font-size:1.3em'>"+tape+"</p></h4>");
+			$("#price").html("<h4>PRICE: <p style='color:yellow;display:inline;font-weight:bold;font-size:1.3em'>"+price+"</p></h4>");
+			$("#operation").html("<h4>OPERATION: <p style='color:yellow;display:inline;font-weight:bold;font-size:1.3em'>"+operation+"</p></h4>");
+
+			$("#indicator-solo").css("display","block");
+			$("#market").css("display","none");
+		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
+		}
+        });
+}
 

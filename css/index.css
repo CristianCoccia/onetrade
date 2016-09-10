@@ -277,21 +277,22 @@ h1 {
     text-align: left;
 }
 
-#title1,#title2,#title3,#title4,#title5,#title6
+#title1,#title2,#title3,#title4,#title5,#title6,#title7
 {
     text-align: center;
     color: white;
-    background: url("../img/inicial.jpg");
+    background: url("../img/logotipo1.png") center no-repeat,rgba(0,0,69,1);
     width: 100%;
     font-size: 2em;
     max-width: 100vw;
+    height: 10vh;
 }
 
 #title-content-courses
 {
     text-align: center;
     color: white;
-    background: url("../img/inicial.jpg");
+    background: rgba(0,0,69,1);
     width: 100%;
     max-width: 100vw;
      font-size: 1em;
@@ -359,7 +360,7 @@ table
     padding: 2.5em 0;
 }
 
-#back1,#back2,#back3,#back4,#back5,#back6,#back7
+#back1,#back2,#back3,#back4,#back5,#back6,#back7,#back8
 {
     width: 100%;
     max-width: 100vw;
@@ -488,4 +489,35 @@ table
 #option1 > .btn,#option2> .btn,#option3> .btn
 {
     white-space: pre-wrap;
+}
+
+
+#indicator-solo
+{   
+     display: none;
+    height: 100%;
+    overflow: auto;
+
+}
+
+#stop,#pair,#tape,#operation,#price
+{
+    margin: 0.5em 0;
+    padding: 0.2em;
+    background: url("../img/fondo.png");
+    color: white;
+}
+
+#tape
+{
+    margin-bottom: 3em;
+}
+
+#title-date
+{
+    text-align: left;
+    padding: 0.35em;
+    background: rgba(25,25,53,0.6);
+    color: white;
+    margin-top: 0.5em;
 }

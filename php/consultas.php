@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');  
 include('config.php');
 
-
+//Get all courses for the selection
  	if($_POST['btn']=="courses")
  	{
  	$sql="SELECT title_content,contentid FROM app_content";
@@ -20,6 +20,7 @@ include('config.php');
  
  	}
 
+//Get all the content from one course.
 
 	if(isset($_POST['id']))
  	{
@@ -38,7 +39,7 @@ include('config.php');
  
  	}
 
-
+//Get all the avaible quizzes
  	if(isset($_POST['quiz']))
  	{
  	$sql="SELECT quizname,quizid FROM app_quiz";
@@ -56,6 +57,7 @@ include('config.php');
  
  	}
 
+//get the questions from one quiz
 
  	if(isset($_POST['quizid']))
  	{
@@ -74,7 +76,27 @@ include('config.php');
  
  	}
 
+//Get all the indicators for the dash board
 
+ 	if(isset($_POST['indisolo']))
+ 	{
+
+ 	$sql="SELECT indicatorid,indidate,indititle FROM app_indicators ORDER BY  indidate DESC";
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_array())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
+ 
+ 	}
+
+//Get all the information from all the quizz (CURRENT 10-09-2016)
  	if(isset($_POST['indi']))
  	{
 
@@ -93,6 +115,27 @@ include('config.php');
  
  	}
 
+//Get all the information from 1 indicator ABOUT TO UPDATE
+
+	if(isset($_POST['indisoloinfo']))
+ 	{
+
+ 	$sql="SELECT indidate,indititle,operation,price,pair,stoploss,tapeprofit FROM app_indicators WHERE indicatorid=".$_POST['indisoloinfo']."";
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_array())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
+ 
+ 	}
+
+//Get all the answers from one question
 
  	 if(isset($_POST['answerid']))
  	{
@@ -111,6 +154,7 @@ include('config.php');
  
  	}
 
+//Register device to send GCM notification
 
  	if(isset($_POST["key"]))
 	{
@@ -131,6 +175,7 @@ include('config.php');
 
 	}
 
+//Get all messages to show.
  	if(isset($_POST['mess']))
  	{
 
@@ -149,7 +194,7 @@ include('config.php');
  
  	}
 
-
+//get all the content from one message
  	if(isset($_POST['messageid']))
  	{
 
