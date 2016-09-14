@@ -128,7 +128,7 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 		data:{username:usuario, password:clave},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		beforeSend: function () {
         $("#wait").css("display","block");       
                 },
@@ -174,7 +174,7 @@ $('#btn1').click(function(){
 		data:{btn:selection},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		beforeSend: function () {
 
         $("#wait").css("display","block");    
@@ -472,7 +472,7 @@ function findcontent(id)
 		data:{id:id},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		beforeSend: function () {
                 
 		$("#wait").css("display","block"); 	
@@ -530,7 +530,7 @@ function findquiz(id)
 		data:{quizid:a},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		async:false,
 		beforeSend: function () {
                 
@@ -580,7 +580,7 @@ function findanswer(a)
 		data:{answerid:b},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		async:true,
 		beforeSend: function () {
                 
@@ -735,7 +735,7 @@ function findmessage(id)
 		data:{messageid:a},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		async:false,
 		beforeSend: function () {
                 
@@ -776,7 +776,7 @@ function findindicator(a)
 		data:{indisoloinfo:a},
 		dataType:"json",
 		crossDomain: true,
-		cache: false,
+		cache: true,
 		beforeSend: function () {
         
         $("#wait").css("display","block");        
