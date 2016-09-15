@@ -24,7 +24,7 @@ include('config.php');
 
 	if(isset($_POST['id']))
  	{
- 	$sql="SELECT title_content,general_info FROM app_content WHERE contentid=".$_POST['id'];
+ 	$sql="SELECT title_content,general_info,date_content FROM app_content WHERE contentid=".$_POST['id'];
 	$info=$db->query($sql);
 	
 
@@ -212,7 +212,29 @@ include('config.php');
 
  
  	}
+ 	
+//Verify the last update from the content
+
+ 	if(isset($_POST['date']))
+ 	{
+ 	$sql="SELECT date_content FROM app_content WHERE contentid=".$_POST['date'];
+	$info=$db->query($sql);
+	
+
+	 while($arr = $info->fetch_assoc())
+ 	{
+  	 $jsondata[] = $arr;
+
+ 	}
+	
+	echo json_encode($jsondata); 
+
  
+ 	}
+
+
+ 
+
 
 
  ?>

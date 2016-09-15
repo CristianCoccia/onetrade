@@ -466,6 +466,72 @@ function show(a)
 function findcontent(id)
 {
 
+
+$.ajax({
+		type: "POST",
+		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		data:{date:id},
+		dataType:"json",
+		crossDomain: true,
+		cache: true,
+		beforeSend: function () {
+                
+		$("#wait").css("display","block"); 	
+                },
+
+		 success:function(data){	
+
+
+		 	if(data[0].date_content==localStorage["date_"+id])
+		 	{
+
+
+					$("#wait").css("display","none"); 
+
+					$("#select-courses").css("display","none");
+					$("#content-courses").css("display","block");
+
+					$("#title-content-courses").html(localStorage["title_"+id]);
+					$("#content-courses-in").html(localStorage["contentforid_"+id]);
+
+
+					$("#title-content-courses").css({
+						    "color": "white",
+		   					 "font-size": "2em",
+		   					 "height":"2em",
+		   					 "text-align":"left",
+		   					 "padding-top":"0.5em"
+					} );
+					$("#content-courses-in").css({
+							"margin-top":"2em",
+		    				"font-size": "1.3em",
+		    				"text-align": "left",
+		    				"margin-bottom":"4em"
+					});
+			}
+			else
+			{
+				getcontent(id);
+			}
+		}
+		,error:function(){
+
+			$("#wait").css("display","none");
+			alert("Something went wrong, please try again later.")
+		}
+        });
+    
+		
+        
+}
+
+
+function getcontent(id)
+{	
+
+
+
+
 		$.ajax({
 		type: "POST",
 		url: "http://onetrade.exchange/app_onetrade/consultas.php",
@@ -490,6 +556,10 @@ function findcontent(id)
 			$("#title-content-courses").html(data[0].title_content);
 			$("#content-courses-in").html(data[0].general_info);
 
+			var date=data[0].date_content;
+			localStorage['title_'+id]= data[0].title_content;
+			localStorage['contentforid_'+id]=data[0].general_info;
+			localStorage['date_'+id]=date;
 
 			$("#title-content-courses").css({
 				    "color": "white",
@@ -512,10 +582,11 @@ function findcontent(id)
 			alert("Something went wrong, please try again later.")
 		}
         });
-       
-		
-        
 }
+
+
+
+
 
 //Getting quiz questions
 
