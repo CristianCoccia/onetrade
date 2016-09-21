@@ -496,7 +496,7 @@ $.ajax({
 
 
 					$("#title-content-courses").css({
-						    "color": "white",
+						    "color": "black",
 		   					 "font-size": "2em",
 		   					 "height":"2em",
 		   					 "text-align":"left",
@@ -562,7 +562,7 @@ function getcontent(id)
 			localStorage['date_'+id]=date;
 
 			$("#title-content-courses").css({
-				    "color": "white",
+				    "color": "black",
    					 "font-size": "2em",
    					 "height":"2em",
    					 "text-align":"left",
