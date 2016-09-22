@@ -344,11 +344,15 @@ $('#btn3').click(function(){
 					}
 				}
 
-				acumulador=acumulador+'</br><div class="btn btn-warning" onclick="findindicator('+data[i][0]+')"> '+date+' | '+title+'</div></br>';
+				acumulador=acumulador+'</br><div class="btn btn-warning" onclick="findindicator('+data[i][0]+')"> '+date+' | '+title+'</div>';
 
 			}
 
 			$("#indicators").html(acumulador);
+			$("#indicators .btn").css({"background":"#728083",
+										"color" : "white",
+										"border-color": "#728083",
+										"margin-top":"0.8em"} );
 			$("#market").css("display","block");
 			$("#home").css("display","none");
 		}
