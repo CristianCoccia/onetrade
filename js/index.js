@@ -65,7 +65,7 @@ console.log(data.registrationId);
 
 	$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{key:data.registrationId},
 		dataType:"json",
 		crossDomain: true,
@@ -124,7 +124,7 @@ var quizq,quizh,quiza,quiza2,countq,questions,ayudante,counta;
 		var clave= $("#password").val();		
 		$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/validacion.php",
+		url: "http://server05.distritohosting.com/onetrade/validacion.php",
 		data:{username:usuario, password:clave},
 		dataType:"json",
 		crossDomain: true,
@@ -170,7 +170,7 @@ $('#btn1').click(function(){
 
 		$.ajax({
 		type: "POST",
-		url:"http://onetrade.exchange/app_onetrade/consultas.php",
+		url:"http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{btn:selection},
 		dataType:"json",
 		crossDomain: true,
@@ -241,7 +241,7 @@ $('#btn2').click(function(){
 
 		$.ajax({
 		type: "POST",
-		url:"http://onetrade.exchange/app_onetrade/consultas.php",
+		url:"http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{quiz:selection},
 		dataType:"json",
 		crossDomain: true,
@@ -313,7 +313,7 @@ $('#btn3').click(function(){
 
 	$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{indisolo:option},
 		dataType:"json",
 		crossDomain: true,
@@ -375,7 +375,7 @@ $('#btn4').click(function(){
 
 		$.ajax({
 		type: "POST",
-		url:"http://onetrade.exchange/app_onetrade/consultas.php",
+		url:"http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{mess:selection},
 		dataType:"json",
 		crossDomain: true,
@@ -473,7 +473,7 @@ function findcontent(id)
 
 $.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{date:id},
 		dataType:"json",
 		crossDomain: true,
@@ -538,7 +538,7 @@ function getcontent(id)
 
 		$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{id:id},
 		dataType:"json",
 		crossDomain: true,
@@ -601,7 +601,7 @@ function findquiz(id)
 
 		$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{quizid:a},
 		dataType:"json",
 		crossDomain: true,
@@ -651,7 +651,7 @@ function findanswer(a)
 
 		$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{answerid:b},
 		dataType:"json",
 		crossDomain: true,
@@ -806,7 +806,7 @@ function findmessage(id)
 
 		$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{messageid:a},
 		dataType:"json",
 		crossDomain: true,
@@ -847,7 +847,7 @@ function findindicator(a)
 
 	$.ajax({
 		type: "POST",
-		url: "http://onetrade.exchange/app_onetrade/consultas.php",
+		url: "http://server05.distritohosting.com/onetrade/consultas.php",
 		data:{indisoloinfo:a},
 		dataType:"json",
 		crossDomain: true,
